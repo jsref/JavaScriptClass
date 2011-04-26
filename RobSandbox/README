@@ -1,0 +1,8 @@
+There are two projects here.
+
+geolocate.html will look up an IP address and return the city, state, and zipcode
+where it is located.  It will only work on Rob's machine because it requires
+additional server software.
+
+index.html has been enhanced to format wrapped strings with the backslash
+continuation notation.

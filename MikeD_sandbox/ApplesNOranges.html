@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<!-- http://www.w3schools.com/html5/tag_doctype.asp -->
+<html>
+<head>
+    <title>File-Based JavaScript Learning Site Stan1</title>
+    <!-- jquery -->
+    <!-- http://encosia.com/2008/12/10/3-reasons-why-you-should-let-google-host-jquery-for-you/ -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <!-- plugins -->
+    <script type='text/javascript' src="../lib/contextmenu/jquery.contextmenu.js"></script>
+    <script type='text/javascript' src="../lib/jsDump/jsDump.js"></script>
+    <script type="text/javascript" src="../lib/glowbuttons/js/jquery.metadata.min.js"></script>
+    <script type="text/javascript" src="../lib/glowbuttons/js/jquery.color.js"></script>
+    <script type="text/javascript" src="../lib/glowbuttons/js/jquery.glowbuttons.js"></script>
+
+    <!-- my code -->
+    <script type="text/javascript" src="scripts/sandbox.js"></script>
+    <!-- my css -->
+    <link rel="stylesheet" type="text/css" href="css/sandbox.css"/>
+    <!-- plugins css -->
+    <link type="text/css" href="../lib/glowbuttons/css/glowbutton.css" rel="stylesheet" />
+
+    <!-- ready function -->
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            bindButtons();
+            $('.glow').glowbuttons();
+        });
+    </script>
+	
+	
+	
+	
+</head>
+<body>
+<div id="divOuter" class="border">
+<script type="text/javascript">
+	var apples = 100;
+     alert('You have ' + apples + ' apples');
+	 var oranges = prompt('How many oranges do you have??');
+	 var total = apples - parseInt(oranges);
+	 alert('You have ' + total + ' more apples than you have oranges!');
+	 </script>
+  
+    <div id="divTar">
+    </div>
+</div>
+</body>
+</html>

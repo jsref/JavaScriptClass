@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <link type="text/css" href="css/glowbutton.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.metadata.min.js"></script>
+    <script type="text/javascript" src="js/jquery.color.js"></script>
+    <script type="text/javascript" src="js/jquery.glowbuttons.js"></script>
+    <script type="text/javascript">
+    
+        $(document).ready(function(){   
+            $('.glow').glowbuttons();
+        });  
+    
+    </script>      
+    <style type="text/css">
+    BODY{ font-family:Tahoma; }           
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <p>Glowing Buttons</p>              
+        <asp:Button ID="Button1" runat="server" CssClass="glow" Text="Sign Up Now!" />        
+        <br />
+        <br />
+        <asp:Button ID="Button2" runat="server" CssClass="glow {from: '#111111', to: '#555555', className: 'dark'}" Text="Sign Up Now!" />        
+        <br />
+        <br />
+        <asp:Button ID="Button3" runat="server" CssClass="glow {from: '#79B837', to: '#C7EB6E', className: 'green', speed: 500}" Text="Sign Up Now!" />        
+        <br />
+        <br />   
+        <asp:Button ID="Button4" runat="server" CssClass="glow {from: '#9C0063', to: '#D693BD', className: 'purple'}" Text="Sign Up Now!" />        
+    </div>
+    </form>
+</body>
+</html>

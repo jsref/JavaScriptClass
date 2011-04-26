@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xml:lang="en" 
+      lang="en">
+ <head>
+  <title>
+   Getting started with Javascript
+  </title>
+  <link rel="stylesheet" 
+        href="howto.css" 
+        type="text/css"/>
+ </head>
+ <body>
+  <table border="1">
+   <tr>
+    <td>
+     Table of contents:
+    </td>
+    <td>
+     <a href="#embedding">Direct Embedding</a>
+    </td>
+    <td>
+     <a href="#delaying">Delaying Execution</a>
+    </td>
+    <td>
+     <a href="#separating">Separating code from HTML</a>
+    </td>
+    <td>
+     <a href="#events">Event handling</a>
+    </td>
+   </tr>
+  </table>
+  <h1>Associating Javascript with an HTML page</h1>
+  <h2><a name="embedding">Embedding Javascript directly in a page</a></h2>
+  <p>
+   Javascript can be directly included in the body of an HTML page.
+   Code contained in that way will simply run when the page is loaded.
+   For example, the following page will put up an alert box that says,
+   "hello."  ("alert" is built in to Javascript in the browser.)
+  </p>
+  <div class="example">
+   <pre>
+    <code>
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;
+   Inline Javascript
+  &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;script type="text/javascript"&gt;
+   alert("hello");
+  &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+   </pre>
+  </div>
+  <p>
+   The HTML &lt;script&gt; element contains code to be executed by the browser.
+   <br/>
+   The "type" attribute specifies that the MIME type of the script is 
+   text/javascript, so the browser knows to interpret the contents of the
+   element as javascript.  Javascript is standard across browsers.  Some
+   browsers understand other scripting languages.
+   <a href="helloinline.html">Try it here</a>
+  </p>
+  <h2><a name="delaying">Delaying execution</a></h2>
+  <p>
+   Generally you will not want to execute a script immediately.  To 
+   defer the execution to a later time, and to make your programs more
+   modular, you can group your actions into "functions."  There are several
+   ways to do this, but the simplest is to use the function keyword:
+  </p>
+  <div class="example">
+   <pre>
+    <code>
+&lt;script type="text/javascript"&gt;
+    function say_hello() {
+        alert("hello");
+    }
+&lt;/script&gt;
+    </code>
+   </pre>
+  </div>
+  <p>
+   Because functions are used to define code to be run at a later time
+   it is conventional to define them in the head of an HTML page rather
+   than in the body.  The page in the following example exhibits the same
+   behavior as the first example but it does so by:
+  </p>
+  <ol>
+   <li>defining the function named "say_hello" in the head of the page</li>
+   <li>invoking the function from the body of the page</li>
+  </ol>
+  <div class="example">
+   <pre>
+    <code>
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;
+   Inline Javascript
+  &lt;/title&gt;
+  <span style="color: green;">&lt;script type="text/javascript"&gt;
+   function say_hello() {
+      alert("hello");
+   }
+  &lt;/script&gt;</span>
+ &lt;/head&gt;
+ &lt;body&gt;
+  <span style="color: green;">&lt;script type="text/javascript"&gt;
+   say_hello();
+  &lt;/script&gt;</span>
+ &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+   </pre>
+  </div>
+  <p><a href="hellofunction.html">Try it here</a></p>
+  <h2><a name="separating">Separating Javascript from HTML</a></h2>
+  <p>
+   While it is preferable to define code in functions for later use, it 
+   would be better yet to put that code somewhere from which it could be 
+   used by more than one web page.  To do this we use the "src" attribute
+   of the script tag.  The value of src is the name of the file containing
+   our Javascript code.  For example, we could put the following code in 
+   a file named hello.js:
+  </p>
+  <div class="example">
+   <pre>
+    <code>
+function say_hello() {
+    alert("hello");
+}
+    </code>
+   </pre>
+  </div>
+  <p>
+   We can use it in our page by including the following code in the
+   head of the page:
+  </p>
+  <div class="example">
+   <pre>
+    <code>
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;
+   Inline Javascript
+  &lt;/title&gt;
+  <span style="color: green;">&lt;script type="text/javascript" src="hello.js"&gt;&lt;/script&gt;</span>
+  &lt;/script&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;script type="text/javascript"&gt;
+   say_hello();
+  &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+   </pre>
+  </div>
+  <p><a href="helloexternal.html">Try it here</a></p>
+  <p>
+   Note that when Javascript code appears in a file by itself, rather
+   than being embedded in an HTML page you do not enclose it in a 
+   &lt;script&gt; element.
+  </p>
+  <h1>Testing Javascript in a file without a web server</h1>
+  <p>
+    Many web browsers will allow you to load an HTML file locally by selecting
+    something like:   
+  </p>
+  <div class="example">
+    <img src="fileopen.png" alt="File/Open File"/>
+  </div>
+  <p>
+   Alternatively, local files can be specified by urls.  For example,
+   if your home directory where /Users/puppy and you were working on a
+   file named hello.html in the html subdirectory, you could access
+   that file by typing the following into the location bar of your
+   browser: <br/><strong>file:///Users/puppy/html/hello.html</strong>
+  </p>
+  <p>
+   Because Javascript is interpreted as part of a web page by the browser,
+   you can simply load files containing Javascript to try things out and
+   make sure your code is working.  You only need to use a web server if
+   something in your web page needs to communicate with a service 
+   by sending data via AJAX or submitting a form.
+  </p>
+  <h1><a name="events">Event Handling</a></h1>
+  <p> 
+   Javascript in a web page is typically run in response to an action
+   on the part of the person viewing the page.  In the last example
+   for this session we will associate the say_hello function with a
+   link in the page.
+  </p>
+  <p> 
+
+   Some HTML elements have attributes that correspond to actions taken
+   using a mouse.  The anchor element, &lt;a&gt;, supports an
+   "onclick" attribute.  So if we wanted to put up an alert that says,
+   "hello," every time a link was clicked we could:
+  </p>
+  <ol>
+   <li>add the function say_hello to the head of the page</li>
+   <li>add an anchor element to the page</li>
+   <li>add a call to say_hello to the onclick attribute of the anchor</li>
+  </ol>
+  <div class="example">
+   <pre>
+    <code>
+     &lt;a href="#" onclick="say_hello()"&gt;Hello&lt;/a&gt;
+    </code>
+   </pre>
+  </div>
+  <p><a href="helloevent.html">Try it here</a></p>
+  <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+       src="http://www.w3.org/Icons/valid-xhtml10"
+       alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+  </p>
+ </body>
+</html>

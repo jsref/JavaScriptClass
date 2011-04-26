@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Including Javascript in HTML</title>
+    <!-- 1. script tag for included file -->
+    <script type="text/javascript" src="hello.js"></script>
+    <!-- 2. script tag for code -->
+    <script type="text/javascript">
+        function say_hi(aString) {
+            alert("hi");
+        }
+    </script>
+</head>
+<body>
+This is the body of the document.
+<!-- 3. inline string as onclick handler -->
+<a href="#" onclick="say_hello();">
+    Hello
+</a>
+<!-- 4. inline string as onclick handler -->
+<button onclick="say_hi();">
+    Hi
+</button>
+<!-- 5. inline script tag in body -->
+<script type="text/javascript">
+    alert('From script tag in body');
+</script>
+</body>
+</html>
