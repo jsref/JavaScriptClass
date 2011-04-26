@@ -173,6 +173,11 @@ function bindButtons() {
         setText(result);
     });
 
+    $('#btnBreakStringSlash').click(function() {
+        var result = replaceCr(getText(), ' /\n');
+        setText(result);
+    });
+
     $('#btnPrettyPrint').click(function() {
         //must put parentheses around the text before eval to handle objects
         var evalResult = eval('(' + getText() + ')');
@@ -192,6 +197,12 @@ function bindButtons() {
         showAjaxResult2('http://stackoverflow.com/users/flair/346711.json?callback=?');
     });
     
+    $('#btnClear').hover(function() {
+        setText('CLEARING...');
+    }, function() {
+        setText('');
+    });
+
 
 }
 

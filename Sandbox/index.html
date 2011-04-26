@@ -31,11 +31,15 @@
 <body>
 <div id="divOuter" class="border">
     <div id="divBtn">
+        <button id="btnClear" class="glow {from: '#FF7700', to: '#FFDD00', className: 'orange'}">Clear
+        </button>
         <button id="btnEvaluateLines" class="glow">Evaluate Lines
         </button>
-        <button id="btnBreakString" class="glow {from: '#9C0063', to: '#D693BD', className: 'purple'}">cr to \n
+        <button id="btnBreakString" class="glow {from: '#9C0063', to: '#D693BD', className: 'purple'}">(cr) to '\n'
         </button>
-        <button id="btnBreakStringPlus" class="dull">cr to \n + (cr)
+        <button id="btnBreakStringPlus" class="glow">(cr) to '\n +' (cr)
+        </button>
+        <button id="btnBreakStringSlash" class="glow">(cr) to '/'(cr)
         </button>
         <button id="btnPrettyPrint" class="dull">Pretty Print
         </button>
@@ -44,8 +48,6 @@
         <button id="btnStackOverflow2" class="dull">AJAX StackOverflow 2
         </button>
         <button id="btnStackOverflowStan" class="dull">AJAX StackOverflow Stan
-        </button>
-        <button id="btnClear" class="glow">Clear
         </button>
     </div>
     <div id="divTar">
